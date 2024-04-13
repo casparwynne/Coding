@@ -4,7 +4,7 @@ import { updateWeaponTable, updateInventoryTable } from "./table.js";
 
 const defaultData = {
     name: "Placeholder Name",
-    picture: "https://casparwynne.github.io/Coding/assets/profile_pic.png",
+    picture: "https://imgur.com/a/TZXXGj3",
     age: 18,
     occupation: "Comms Technician",
     movement: 25,
