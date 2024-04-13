@@ -1,0 +1,289 @@
+:root {
+    --background-default: #2c2c2c;
+    --background-light: rgb(114, 114, 114);
+    --background-modal: #fefefed7;
+    --background-button: #ccc;
+    --background-button-hover: #aaa;
+    --text-color-default: #1a1a1a;
+    --text-color-light: #fff;
+    --border-radius-default: 4px;
+    --font-size-large: x-large;
+    --modal-background-color: rgba(0, 0, 0, 0.4);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-default);
+    color: var(--text-color-default);
+}
+
+.ship-info {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+.ship-info strong {
+    color: #333;
+}
+
+.ship-info span[contenteditable="true"], .ship-info input[type="text"] {
+    border: none;
+    background-color: #e8e8e8;
+    padding: 2px 4px;
+    border-radius: 4px;
+    width: auto;
+}
+
+.fuel-bar-container {
+    border: '2px solid #ccc';
+    width: '200px';
+    height: '20px';
+}
+
+.useFuel {
+    width: 90px;
+}
+
+.refuel {
+    width: 90px;
+}
+
+button {
+    margin: 0px 2px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: var(--border-radius-default);
+    background-color: var(--background-button);
+    color: var(--text-color-default);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--background-button-hover);
+
+}
+
+h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+#content {
+    max-width: 100%;
+    margin: auto;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius-default);
+    padding: 20px;
+    padding-bottom: 10%;
+    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.2);
+}
+
+.grid-item {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+/* UI */
+
+.profilePicture {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* NAV bar CSS */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    /* Set top property for where to stick */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    z-index: 999;
+    /* Ensure it's above other content */
+}
+
+#saveBtn {
+    /* padding: 5px 10px; */
+    color: #fff;
+    background-color: #0a5b29;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px;
+}
+
+#saveBtn:hover {
+    background-color: #14ad4f;
+}
+
+#saveAsBtn {
+    /* padding: 5px 10px; */
+    color: #fff;
+    background-color: #119845;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 75px;
+    height: 35px;
+}
+
+#saveAsBtn:hover {
+    background-color: #1bf66f;
+}
+
+#loadBtn {
+    /* padding: 5px 10px; */
+    color: #fff;
+    background-color: #1a0d6e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px;
+    height: 35px;
+}
+
+#loadBtn:hover {
+    background-color: #2916a4;
+}
+
+#newBtn {
+    /* padding: 5px 10px; */
+    color: #fff;
+    background-color: #6e0d0d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px;
+    height: 35px;
+}
+
+#newBtn:hover {
+    background-color: #a41616;
+}
+
+.timeDisplay {
+    font-size: 16px;
+    justify-content: flex-end;
+}
+
+/*End of NAV*/
+
+/* editiable character content */
+.editable {
+    display: inline-block;
+    border-bottom: 1px dashed #aaa;
+    cursor: text;
+}
+
+.editable:hover,
+.editable:focus {
+    background-color: #eef;
+    border-bottom: 1px solid #333;
+}
+
+.editableText {
+    padding: 4px;
+}
+
+#longRest {
+    width: 10%;
+    height: 5%;
+    display: block;
+    padding: 1%;
+    margin: auto;
+    margin-top: 10px;
+    background-color: cadetblue;
+}
+
+#longRest:hover {
+    background-color: rgb(38, 211, 202);
+}
+
+/*Abilities, skills and statuses containers */
+
+.item-name {
+    width: 50%;
+}
+
+.item-value {
+    width: 10%;
+}
+
+.shipName-container {
+    text-align: left;
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 760px) {
+
+    #content {
+        max-width: 60%;
+        margin: auto;
+        background-color: var(--background-light);
+        border-radius: var(--border-radius-default);
+        padding: 20px;
+        padding-bottom: 10%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+
+    /* Abilities arranged in 2x3 */
+    #abilities-container {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns for abilities */
+    }
+
+    /* Statuses arranged in 2x2 */
+    #statuses-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for statuses */
+    }
+
+    /* Skills arranged in 3 columns */
+    #skills-container {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns for skills, aligns with abilities */
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .grid-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #content {
+        max-width: 60%;
+        margin: auto;
+        background-color: var(--background-light);
+        border-radius: var(--border-radius-default);
+        padding: 20px;
+        padding-bottom: 10%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+}
